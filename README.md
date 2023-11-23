@@ -33,7 +33,7 @@
 
 ### Ответы:
 
-Кластер на kubeadm устанавливается почти полностью автоматически. После отрабатывания терраформа требуется запустить скрипт /home/ubuntu/flannel.sh для установки flannel (хотел установку flannel положить в init.sh, но почему то сыпались ошибки, решил не тратить время)    
+Кластер на kubeadm устанавливается почти полностью автоматически. После отрабатывания терраформа требуется запустить скрипт /home/ubuntu/[flannel.sh](https://github.com/bonanzza-web/kuber-homeworks3.2/blob/main/files/flannel.sh) для установки flannel (хотел установку flannel положить в [init.sh](https://github.com/bonanzza-web/kuber-homeworks3.2/blob/main/files/init.sh), но почему то сыпались ошибки, решил не тратить время)    
 
 ```
 ubuntu@master-node:~$ ls
@@ -73,7 +73,7 @@ users:
 
 ```
 
-Скрипт init.sh создает файл init.output.txt с командой для подключения воркер нод, мы ее копируем и вставляем на хостовой машине в плейбук join.yml, запускаем плейбук вручную    
+Скрипт [init.sh](https://github.com/bonanzza-web/kuber-homeworks3.2/blob/main/files/init.sh) создает файл init.output.txt (/home/ubuntu/init.output.txt) с командой для подключения воркер нод, мы ее копируем и вставляем на хостовой машине в плейбук join.yml, запускаем плейбук вручную    
 
 ```
 bonanzza@debian:~/kuber-hw/3.2/kuber-homeworks3.2$ ansible-playbook -i inventory/hosts.txt join.yml
