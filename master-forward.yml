@@ -1,0 +1,25 @@
+---
+- name: Init cluster
+  hosts: master.master-node
+  become: true
+  remote_user: ubuntu
+
+  tasks:
+  - name: Copy init file
+    ansible.builtin.copy:
+      src: ./files/init.sh
+      dest: /home/ubuntu/init.sh
+      owner: ubuntu
+      group: ubuntu
+      mode: '0755'
+  
+  - name: Start init
+    ansible.builtin.shell: /home/ubuntu/init.sh
+
+  - name: Copy flannel file
+    ansible.builtin.copy:
+      src: ./files/flannel.sh
+      dest: /home/ubuntu/flannel.sh
+      owner: ubuntu
+      group: ubuntu
+      mode: '0755'

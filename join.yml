@@ -1,0 +1,11 @@
+---
+- name: Join to master node
+  hosts: workers
+  become: yes
+  remote_user: ubuntu
+
+  tasks:
+  - name: Join
+    ansible.builtin.shell: kubeadm join 10.2.3.31:6443 --token d179r3.b8zo4xsz8bijfx05 \
+        --discovery-token-ca-cert-hash sha256:b9ca68d14fe4d033c91eddc177ac8b61a42c3a44dbe749b5a556ea5fce0bbb1e
+
